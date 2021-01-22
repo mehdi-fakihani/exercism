@@ -6,59 +6,66 @@ namespace space_age {
     class space_age
     {
         public:
-            constexpr space_age(const unsigned long long int age_in_seconds) noexcept
+            constexpr explicit space_age(const long long int age_in_seconds)
                 : age_in_seconds{age_in_seconds}
             {}
 
-            constexpr unsigned long long int seconds() const
+            constexpr long long int seconds() const
             {
                 return age_in_seconds;
             }
 
             constexpr double on_mercury() const
             {
-                return on_earth() / 0.2408467;
+                constexpr double mercury_orbital_period_in_seconds = 0.2408467;
+                return on_earth() / mercury_orbital_period_in_seconds;
             }
 
             constexpr double on_venus() const
             {
-                return on_earth() / 0.61519726;
+                constexpr double venus_orbital_period_in_seconds = 0.61519726;
+                return on_earth() / venus_orbital_period_in_seconds;
             }
 
             constexpr double on_earth() const
             {
-                return seconds() / SECONDS_PER_YEAR;
+                return seconds() / seconds_per_earth_year;
             }
 
             constexpr double on_mars() const
             {
-                return on_earth() / 1.8808158;
+                constexpr double mars_orbital_period_in_seconds = 1.8808158;
+                return on_earth() / mars_orbital_period_in_seconds;
             }
 
             constexpr double on_jupiter() const
             {
-                return on_earth() / 11.862615;
+                constexpr double jupiter_orbital_period_in_seconds = 11.862615;
+                return on_earth() / jupiter_orbital_period_in_seconds;
             }
 
             constexpr double on_saturn() const
             {
-                return on_earth() / 29.447498;
+                constexpr double saturn_orbital_period_in_seconds = 29.447498;
+                return on_earth() / saturn_orbital_period_in_seconds;
             }
 
             constexpr double on_uranus() const
             {
-                return on_earth() / 84.016846;
+                constexpr double uranus_orbital_period_in_seconds = 84.016846;
+                return on_earth() / uranus_orbital_period_in_seconds;
             }
 
             constexpr double on_neptune() const
             {
-                return on_earth() / 164.79132;
+                constexpr double neptune_orbital_period_in_seconds = 164.79132;
+                return on_earth() / neptune_orbital_period_in_seconds;
             }
 
         private:
-            static constexpr double SECONDS_PER_YEAR = 3600 * 24 * 365.25;
+            static constexpr double seconds_per_earth_year = 365.25 * 24 * 3600;
 
-            unsigned long long int age_in_seconds;
+            long long int age_in_seconds;
     };
 
 }  // namespace space_age
