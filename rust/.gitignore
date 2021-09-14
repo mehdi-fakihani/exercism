@@ -1,0 +1,5 @@
+# Cargo build folders
+debug/
+target/
+
+Cargo.lock
